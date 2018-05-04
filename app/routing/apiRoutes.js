@@ -21,8 +21,8 @@ module.exports = function(app) {
         var score=0;
 
         for (var x=0;x<friends.length;x++){
-            for (var i = 0; i<newUser.scores.length; i++){
-                var difference = Math.abs(friends[x].scores[i] - newUser.scores[i]);
+            for (var i = 0; i<newFriend.score.length; i++){
+                var difference = Math.abs(friends[x].score[i] - newFriend.score[i]);
                 totalDifference += difference; 
                 score++;
                 if(score === 10){ 
@@ -43,8 +43,8 @@ differences.sort(function(a,b) {
     return parseFloat(a.scoreDifference)- parseFloat(b.scoreDifference);
 });
 console.log("Best Match " +JSON.stringify(differences[0]));
-var bestMatchUserId= differences[0].userIndex;
-var bestMatch = friends[bestMatchuserId];
+var bestMatchFriendId= differences[0].friendIndex;
+var bestMatch = friends[bestMatchFriendId];
 
 friends.push(newFriend);
 response.json(bestMatch);
